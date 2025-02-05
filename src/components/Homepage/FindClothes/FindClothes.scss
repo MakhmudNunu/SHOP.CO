@@ -1,0 +1,70 @@
+.find__clothes {
+    width: 100%;
+    background: #F2F0F1;
+    padding: 103px 0 116px 0;
+    position: relative;
+    &__back__img {
+        position: absolute;
+        bottom: 0;
+        right: 70px;
+    }
+    &__small__star {
+        position: absolute;
+        top: 293px;
+        right: 634px;
+    }
+    &__big__star {
+        position: absolute;
+        top: 86px;
+        right: 81px;
+    }
+    &__p {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 137%;
+        color: rgba(0, 0, 0, 0.6);
+        margin: 32px 0;
+    }
+    &__container {
+        h1 {
+            font-family: var(--second-family);
+            font-weight: 700;
+            font-size: 64px;
+            line-height: 100%;
+            color: #000;
+        }
+
+        button {
+            background: #000;
+            border-radius: 62px;
+            padding: 16px 54px;
+            width: 210px;
+            height: 52px;
+            font-family: var(--font-family);
+            font-weight: 500;
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 48px;
+        }
+        &__counts {
+            display: flex;
+            column-gap: 34px;
+            &__item {
+                h3 {
+                    font-family: var(--font-family);
+                    font-weight: 700;
+                    font-size: 40px;
+                    color: #000;
+                }
+                p {
+                    font-family: var(--font-family);
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 137%;
+                    color: rgba(0, 0, 0, 0.6);
+                }
+            }
+        }
+    }
+}

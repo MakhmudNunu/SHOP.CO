@@ -1,0 +1,9 @@
+.brands__line {
+    background: black;
+    &__container {
+        padding: 42px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
