@@ -14,7 +14,9 @@ const Header = () => {
         </div>
         <div className="container">
             <div className="header__menu">
-                <h3>SHOP.CO</h3>
+                <Link to="/">
+                    <h3>SHOP.CO</h3>
+                </Link>
                 <ul>
                     <li>Shop</li>
                     <li>On Sale</li>

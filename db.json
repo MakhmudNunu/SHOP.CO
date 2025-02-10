@@ -1,0 +1,70 @@
+{
+    "newArrivalsDB": [
+        {
+            "id": 1,
+            "image": "/images/BlackTShirt.png",
+            "title": "T-Shirt With Tape Details",
+            "price": 120,
+            "rate": 4.5,
+            "description": "A classic T-shirt with tape details",
+            "category": "T-Shirts"
+        },
+        {
+            "id": 2,
+            "image": "/images/SkinnyJeans.png",
+            "title": "Skinny Fit Jeans",
+            "price": 240,
+            "rate": 3.5,
+            "description": "Skinny fit jeans for a stylish look",
+            "category": "Jeans"
+        },
+        {
+            "id": 3,
+            "image": "/images/ChekeredShirt.png",
+            "title": "Checked Shirt",
+            "price": 180,
+            "rate": 4.5,
+            "description": "A classic checked shirt for casual wear",
+            "category": "Shirts"
+        },
+        {
+            "id": 4,
+            "image": "/images/OrangeTShirt.png",
+            "title": "Sleeve Striped T-Shirt",
+            "price": 130,
+            "rate": 4.5,
+            "description": "A stylish sleeve striped T-shirt",
+            "category": "T-Shirts"
+        }
+    ],
+    "topSellingDB": [
+        {
+            "id": 1,
+            "image": "/images/VERTICALSTRIPEDSHIRT.png",
+            "title": "Vertical Striped Shirt",
+            "price": 212,
+            "rate": 5.0
+        },
+        {
+            "id": 2,
+            "image": "/images/COURAGEGRAPHICT-SHIRT.png",
+            "title": "Courage Graphic T-Shirt",
+            "price": 145,
+            "rate": 4.0
+        },
+        {
+            "id": 3,
+            "image": "/images/LOOSEFITBERMUDASHORTS.png",
+            "title": "Loose Fit Bermuda Shorts",
+            "price": 80,
+            "rate": 3.0
+        },
+        {
+            "id": 4,
+            "image": "/images/FADEDSKINNYJEANS.png",
+            "title": "Faded Skinny Jeans",
+            "price": 210,
+            "rate": 4.5
+        }
+    ]
+}
