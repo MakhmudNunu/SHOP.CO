@@ -1,6 +1,7 @@
 import React from 'react'
 import cart from '../../assets/images/Frame.png'
 import profile from '../../assets/images/Frame2.png'
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import './Header.scss'
@@ -9,7 +10,7 @@ const Header = () => {
   return (
     <header className="header">
         <div className="header__top">
-            <p>Sign up and get 20% off to your first order. <a href="">Sign Up Now</a></p>
+            <p>Sign up and get 20% off to your first order. <span>Sign Up Now</span></p>
         </div>
         <div className="container">
             <div className="header__menu">
@@ -25,9 +26,11 @@ const Header = () => {
                     <input type="text" placeholder='Search for products...' />
                 </div>
                 <div className="header__buttons">
-                    <button>
-                        <img src={cart} alt="" />
-                    </button>
+                    <Link to="/cart">
+                        <button>
+                            <img src={cart} alt="Cart" />
+                        </button>
+                    </Link>
                     <button>
                         <img src={profile} alt="" />
                     </button>
