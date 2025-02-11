@@ -7,7 +7,10 @@
             "price": 120,
             "rate": 4.5,
             "description": "A classic T-shirt with tape details",
-            "category": "T-Shirts"
+            "category": "T-Shirts",
+            "colors": ["Black", "White", "Grey"],
+            "sizes": ["S", "M", "L", "XL"],
+            "stock": 50
         },
         {
             "id": 2,
@@ -16,7 +19,10 @@
             "price": 240,
             "rate": 3.5,
             "description": "Skinny fit jeans for a stylish look",
-            "category": "Jeans"
+            "category": "Jeans",
+            "colors": ["Blue", "Black", "Grey"],
+            "sizes": ["28", "30", "32", "34"],
+            "stock": 30
         },
         {
             "id": 3,
@@ -25,7 +31,10 @@
             "price": 180,
             "rate": 4.5,
             "description": "A classic checked shirt for casual wear",
-            "category": "Shirts"
+            "category": "Shirts",
+            "colors": ["Red", "Blue", "Green"],
+            "sizes": ["S", "M", "L", "XL"],
+            "stock": 40
         },
         {
             "id": 4,
@@ -34,7 +43,10 @@
             "price": 130,
             "rate": 4.5,
             "description": "A stylish sleeve striped T-shirt",
-            "category": "T-Shirts"
+            "category": "T-Shirts",
+            "colors": ["Orange", "White", "Black"],
+            "sizes": ["S", "M", "L", "XL"],
+            "stock": 60
         }
     ],
     "topSellingDB": [
@@ -43,28 +55,63 @@
             "image": "/images/VERTICALSTRIPEDSHIRT.png",
             "title": "Vertical Striped Shirt",
             "price": 212,
-            "rate": 5.0
+            "rate": 5.0,
+            "colors": ["Blue", "White", "Grey"],
+            "sizes": ["S", "M", "L", "XL"],
+            "stock": 20
         },
         {
             "id": 2,
             "image": "/images/COURAGEGRAPHICT-SHIRT.png",
             "title": "Courage Graphic T-Shirt",
             "price": 145,
-            "rate": 4.0
+            "rate": 4.0,
+            "colors": ["Black", "White", "Grey"],
+            "sizes": ["S", "M", "L", "XL"],
+            "stock": 50
         },
         {
             "id": 3,
             "image": "/images/LOOSEFITBERMUDASHORTS.png",
             "title": "Loose Fit Bermuda Shorts",
             "price": 80,
-            "rate": 3.0
+            "rate": 3.0,
+            "colors": ["Blue", "Black", "Grey"],
+            "sizes": ["28", "30", "32", "34"],
+            "stock": 30
         },
         {
             "id": 4,
             "image": "/images/FADEDSKINNYJEANS.png",
             "title": "Faded Skinny Jeans",
             "price": 210,
-            "rate": 4.5
+            "rate": 4.5,
+            "colors": ["Blue", "Black", "Grey"],
+            "sizes": ["28", "30", "32", "34"],
+            "stock": 40
+        }
+    ],
+   "feedbacksDB": [
+        {
+            "id": 1,
+            "userName": "Sarah M.",
+            "rate": 5,
+            "text": "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+            "verified": true
+        },
+        {
+            "id": 2,
+            "userName": "Alex K.",
+            "rate": 5,
+            "text": "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
+            "verified": true
+        },
+        {
+            "id": 3,
+            "userName": "James L.",
+            "rate": 5,
+            "text": "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
+            "verified": true
         }
     ]
 }

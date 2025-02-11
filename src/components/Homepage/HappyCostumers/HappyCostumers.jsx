@@ -1,34 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import arrowL from '../../../assets/images/arrow-l.png'
 import arrowR from '../../../assets/images/arrow-r.png'
 import verified from '../../../assets/images/verified.png'
+import axios from 'axios';
 import './HappyCostumers.scss'
 
-const feedbacks = [
-    {
-        id: 0,
-        userName: 'Sarah M.',
-        rate: 5,
-        text: `I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.`,
-        verified: true
-    },
-    {
-        id: 1,
-        userName: 'Alex K.' ,
-        rate: 5,
-        text: `Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.`,
-        verified: true
-    },
-    {
-        id: 2,
-        userName: 'James L.',
-        rate: 5,
-        text: `As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.`,
-        verified: true
-    },
-]
 
 const HappyCostumers = () => {
+
+    const [feedbacks, setFeedbacks] = useState([])
+
+    useEffect(() => {
+        axios.get("http://localhost:5000/feedbacksDB")
+        .then(response => setFeedbacks(response.data))
+        .catch(error => console.error("Ошибка загрузки", error))
+    })
+
   return (
     <section className='happy__costumers'>
         <div className="happy__costumers__container container">
