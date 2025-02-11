@@ -1,13 +1,17 @@
 .footer {
     background: #f0f0f0;
     padding: 140px 0 88px 0;
+    position: relative;
     &__top {
-        display: none;
+        display: flex;
         justify-content: space-between;
         border-radius: 20px;
         padding: 36px 64px;
-        width: 100%;
+        width: 1240px;
         background: black;
+        position: absolute;
+        top: -90px;
+
         &__left {
             padding: 7px 0;
             h2 {

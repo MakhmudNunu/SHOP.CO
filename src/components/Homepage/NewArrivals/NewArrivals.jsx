@@ -8,9 +8,12 @@ const NewArrivals = () => {
 
     useEffect(() => {
         axios.get("http://localhost:5000/newArrivalsDB")
-        .then(response => setProducts(response.data))
+        .then(response => {
+            setProducts(response.data)
+            console.log('Данные получены')
+        })
         .catch(error => console.error("Ошибка загрузки", error));
-    })
+    }, [])
 
   return (
     <section className="new__arrivals">
