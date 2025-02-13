@@ -21,10 +21,10 @@ const Footer = () => {
                 </div>
                 <div className="footer__top__right">
                     <form action="mailto:info@example.com" method="post">
-                        <div className="footer__top__right__input">
+                        <label className="footer__top__right__input">
                             <img src={mailIcon} alt="" />
                             <input type="email" placeholder="Enter your email address" />
-                        </div>
+                        </label>
                         <button type="submit">Subscribe to Newsletter</button>
                     </form>
                 </div>

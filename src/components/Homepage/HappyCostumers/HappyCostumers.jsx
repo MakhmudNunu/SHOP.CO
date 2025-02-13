@@ -14,7 +14,7 @@ const HappyCostumers = () => {
         axios.get("http://localhost:5000/feedbacksDB")
         .then(response => setFeedbacks(response.data))
         .catch(error => console.error("Ошибка загрузки", error))
-    })
+    }, [])
 
   return (
     <section className='happy__costumers'>
