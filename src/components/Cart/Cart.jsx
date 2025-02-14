@@ -25,9 +25,9 @@ const Cart = () => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/cart")
+    axios.get("http://localhost:5000/users")
       .then((response) => {
-        setCart(response.data)
+        setCart(response.data[0].cart)
         console.log('Данные получены')
       })
       .catch((error) => console.error(error));

@@ -192,10 +192,8 @@
       "email": "qwertya@gmail.com",
       "password": "$2a$10$FzCHIlCRuyq6zE5eJZgCHe4FLvigtR35hSnDOYxbEhsHII0MYyNwO",
       "name": "qwerty",
-      "id": 1
-    }
-  ],
-  "cart" : [
+      "id": 1,
+      "cart" : [
         {
           "id": 1,
           "image": "/images/SkinnyJeans.png",
@@ -260,4 +258,7 @@
           "stock": 40
         }
       ]
+    }
+  ]
+  
 }
