@@ -25,14 +25,16 @@
         justify-content: space-between;
         align-items: center;
         padding: 24px 0;
-
+        a {
+            text-decoration: none !important;
+        }
         h3 {
             font-family: var(--second-family);
             font-weight: 700;
             font-size: 32px;
             color: #000;
             margin-bottom: 5px;
-            text-decoration: none;
+            outline: none;
         }
         ul {
             display: flex;
@@ -61,6 +63,7 @@
             }
             input {
                 border: none;
+                outline: none;
                 background: transparent;
                 font-family: var(--font-family);
                 font-weight: 400;
@@ -80,4 +83,5 @@
             border: none;
         }
     }
+
 }

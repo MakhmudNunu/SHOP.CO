@@ -10,7 +10,7 @@ const TopSelling = () => {
         axios.get("http://localhost:5000/topSellingDB")
         .then(response => setProducts(response.data))
         .catch(error => console.error("Ошибка загрузки", error));
-    })
+    }, [])
 
   return (
     <section className="top__selling">
