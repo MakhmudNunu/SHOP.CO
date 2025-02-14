@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './NewArrivals.scss'
+import { Link } from 'react-router-dom'
 
 const NewArrivals = () => {
 
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/newArrivalsDB")
+        axios.get("http://localhost:5002/newArrivalsDB")
         .then(response => {
             setProducts(response.data)
             console.log('Данные получены')
@@ -24,7 +25,9 @@ const NewArrivals = () => {
                     {products.map((item, index) => {
                         return (
                             <div className="new__arrivals__item" key={index}>
+                                <Link to={`/detail/${item.id}`}>
                                 <img className="new__arrivals__item__img" src={item.image} alt="new arrivals" />
+                                </Link>
                                 <div className="new__arrivals__item__info">
                                     <h3 className="new__arrivals__item__title">{item.title}</h3>
                                     <div className="new__arrivals__item__rate">
