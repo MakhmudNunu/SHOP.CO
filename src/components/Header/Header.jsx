@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import cart from '../../assets/images/Frame.png'
 import profile from '../../assets/images/Frame2.png'
 import { Link } from 'react-router-dom'
@@ -7,6 +7,9 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import './Header.scss'
 
 const Header = () => {
+
+    const [isLogged, setIsLogged] = useState(false)
+
   return (
     <header className="header">
         <div className="header__top">
@@ -23,19 +26,23 @@ const Header = () => {
                     <li>New Arrivals</li>
                     <li>Brands</li>
                 </ul>
-                <div className="header__menu__input__container">
-                    <FontAwesomeIcon className='header__menu__input__container__search__icon' icon={faSearch} />
-                    <input type="text" placeholder='Search for products...' />
-                </div>
+                <form action="">
+                    <label className="header__menu__input__container">
+                        <FontAwesomeIcon className='header__menu__input__container__search__icon' icon={faSearch} />
+                        <input type="text" placeholder='Search for products...' />
+                    </label>
+                </form>
                 <div className="header__buttons">
                     <Link to="/cart">
                         <button>
                             <img src={cart} alt="Cart" />
                         </button>
                     </Link>
-                    <button>
-                        <img src={profile} alt="" />
-                    </button>
+                    <Link to={isLogged && '/profile' || '/register'}>
+                        <button>
+                            <img src={profile} alt="" />
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

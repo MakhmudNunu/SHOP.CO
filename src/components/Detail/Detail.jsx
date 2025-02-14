@@ -9,7 +9,7 @@ const Detail = () => {
   let id = location.pathname.split('/')[location.pathname.split('/').length -1]
  
   useEffect(()=>{
-    axios(`http://localhost:5002/newArrivalsDB/${id}`)
+    axios(`http://localhost:5000/newArrivalsDB/${id}`)
     .then(({data})=>setOne(data))
   },[])
   

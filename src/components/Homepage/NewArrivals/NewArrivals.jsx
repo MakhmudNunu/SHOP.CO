@@ -8,7 +8,7 @@ const NewArrivals = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:5002/newArrivalsDB")
+        axios.get("http://localhost:5000/newArrivalsDB")
         .then(response => {
             setProducts(response.data)
             console.log('Данные получены')
