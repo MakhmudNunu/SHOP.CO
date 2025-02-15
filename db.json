@@ -2,29 +2,37 @@
   "newArrivalsDB": [
     {
       "id": 1,
-      "image": "/images/BlackTShirt.png",
-      "title": "T-Shirt With Tape Details",
+      "image": [
+        "/images/BlackTShirt.png",
+        "/images/SkinnyJeans.png",
+        "/images/ChekeredShirt.png"
+      ],
+      "title": "Classic Black TShirt",
       "price": 120,
       "rate": 4.5,
       "description": "A classic T-shirt with tape details",
       "category": "T-Shirts",
       "colors": [
-        "Black",
-        "White",
-        "Grey"
+        "black",
+        "white",
+        "grey"
       ],
       "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
+        "Small",
+        "Medium",
+        "Large",
+        "X-Large"
       ],
       "stock": 50,
       "isNew": "true"
     },
     {
       "id": 2,
-      "image": "/images/SkinnyJeans.png",
+      "image": [
+        "/images/SkinnyJeans.png",
+        "/images/SkinnyJeans.png",
+        "/images/SkinnyJeans.png"
+      ],
       "title": "Skinny Fit Jeans",
       "price": 240,
       "rate": 3.5,
@@ -45,7 +53,11 @@
     },
     {
       "id": 3,
-      "image": "/images/ChekeredShirt.png",
+      "image": [
+        "/images/ChekeredShirt.png",
+        "/images/ChekeredShirt.png",
+        "/images/ChekeredShirt.png"
+      ],
       "title": "Checked Shirt",
       "price": 180,
       "rate": 4.5,
@@ -66,7 +78,11 @@
     },
     {
       "id": 4,
-      "image": "/images/OrangeTShirt.png",
+      "image": [
+        "/images/OrangeTShirt.png",
+        "/images/OrangeTShirt.png",
+        "/images/OrangeTShirt.png"
+      ],
       "title": "Sleeve Striped T-Shirt",
       "price": 130,
       "rate": 4.5,

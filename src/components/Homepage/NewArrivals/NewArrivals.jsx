@@ -26,7 +26,7 @@ const NewArrivals = () => {
                         return (
                             <div className="new__arrivals__item" key={index}>
                                 <Link to={`/detail/${item.id}`}>
-                                <img className="new__arrivals__item__img" src={item.image} alt="new arrivals" />
+                                <img className="new__arrivals__item__img" src={item.image[0]} alt="new arrivals" />
                                 </Link>
                                 <div className="new__arrivals__item__info">
                                     <h3 className="new__arrivals__item__title">{item.title}</h3>
