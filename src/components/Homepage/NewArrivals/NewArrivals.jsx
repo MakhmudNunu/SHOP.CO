@@ -8,7 +8,7 @@ const NewArrivals = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/newArrivalsDB")
+        axios.get("http://localhost:5000/productsDB")
         .then(response => {
             setProducts(response.data)
             console.log('Данные получены')
@@ -22,23 +22,21 @@ const NewArrivals = () => {
             <div className="new__arrivals__content">
                 <h2 className="new__arrivals__title">New Arrivals</h2>
                 <div className="new__arrivals__items">
-                    {products.map((item, index) => {
-                        return (
-                            <div className="new__arrivals__item" key={index}>
-                                <Link to={`/detail/${item.id}`}>
+                    {products.filter(item => item.isNew).map((item, index) => (
+                        <div className="new__arrivals__item" key={index}>
+                            <Link to={`/detail/${item.id}`}>
                                 <img className="new__arrivals__item__img" src={item.image[0]} alt="new arrivals" />
-                                </Link>
-                                <div className="new__arrivals__item__info">
-                                    <h3 className="new__arrivals__item__title">{item.title}</h3>
-                                    <div className="new__arrivals__item__rate">
-                                        <span className="rate__star" style={{ width: `${item.rate / 5 * 100}%` }}></span>
-                                        <span className="rate__text">{item.rate}/5</span>
-                                    </div>
-                                    <p className="new__arrivals__item__price">${item.price}</p>
+                            </Link>
+                            <div className="new__arrivals__item__info">
+                                <h3 className="new__arrivals__item__title">{item.title}</h3>
+                                <div className="new__arrivals__item__rate">
+                                    <span className="rate__star" style={{ width: `${item.rate / 5 * 100}%` }}></span>
+                                    <span className="rate__text">{item.rate}/5</span>
                                 </div>
+                                <p className="new__arrivals__item__price">${item.price}</p>
                             </div>
-                        )
-                    })}
+                        </div>
+                    ))}
                 </div>
                 <button className="new__arrivals__btn">View All</button>
             </div>

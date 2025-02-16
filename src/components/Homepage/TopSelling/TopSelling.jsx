@@ -7,7 +7,7 @@ const TopSelling = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/topSellingDB")
+        axios.get("http://localhost:5000/productsDB")
         .then(response => setProducts(response.data))
         .catch(error => console.error("Ошибка загрузки", error));
     }, [])
@@ -18,10 +18,10 @@ const TopSelling = () => {
             <div className="top__selling__content">
                 <h2 className="top__selling__title">Top Selling</h2>
                 <div className="top__selling__items">
-                    {products.map((item, index) => {
+                    {products.filter(item => item.rate >= 4.5).slice(0, 4).map((item, index) => {
                         return (
                             <div className="top__selling__item" key={index}>
-                                <img className="top__selling__item__img" src={item.image} alt="new arrivals" />
+                                <img className="top__selling__item__img" src={item.image[0]} alt="new arrivals" />
                                 <div className="top__selling__item__info">
                                     <h3 className="top__selling__item__title">{item.title}</h3>
                                     <div className="top__selling__item__rate">
