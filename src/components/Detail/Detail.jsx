@@ -6,6 +6,7 @@ import './Detail.scss'
 const Detail = () => {
 
   const [product,setProduct] = useState({})
+  const [similarProduct, setSimilarProduct] = useState([])
   const [activePage, setActivePage] = useState('')
   const [itemCount, setItemCount] = useState(1)
   const [selectedColor, setSelectedColor] = useState('')
@@ -34,6 +35,12 @@ const Detail = () => {
     .then(({data})=>{
       setProduct(data)
       setActivePage(data.image[0])
+    })
+  },[])
+  useEffect(()=>{
+    axios(`http://localhost:5000/productsDB/`)
+    .then(({data})=>{
+      setSimilarProduct(data)
     })
   },[])
 
@@ -267,6 +274,21 @@ const Detail = () => {
                     </ul>
                   </div>
                 ) : null
+              }
+            </div>
+          </div>
+          <div className="detail__content__also__like">
+            <h2>You might also like</h2>
+            <div className="detail__content__also__like__items">
+              {
+                similarProduct.filter((item, index) => item.category === product.category || product.category === 'Shirts').slice(0, 4).map((item, index) => (
+                  <div key={index} className="detail__content__also__like__items__item">
+                    <img src={item.image[0]} alt={item.title} />
+                    <h4>{item.title}</h4>
+                    <h5>{item.rate}</h5>
+                    <p>${item.price}</p>
+                  </div>
+                ))
               }
             </div>
           </div>

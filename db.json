@@ -206,7 +206,93 @@
         "X-Large"
       ],
       "stock": 40,
-      "isNew": "true"
+      "isNew": "true",
+      "reviews": [
+        {
+          "id": 1,
+          "userName": "Sarah M.",
+          "rate": 5,
+          "text": "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+          "verified": true
+        },
+        {
+          "id": 2,
+          "userName": "Alex K.",
+          "rate": 5,
+          "text": "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
+          "verified": true
+        },
+        {
+          "id": 3,
+          "userName": "James L.",
+          "rate": 5,
+          "text": "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
+          "verified": true
+        },
+        {
+          "id": 4,
+          "userName": "Sarah M.",
+          "rate": 5,
+          "text": "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+          "verified": true
+        },
+        {
+          "id": 5,
+          "userName": "Alex K.",
+          "rate": 5,
+          "text": "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
+          "verified": true
+        },
+        {
+          "id": 6,
+          "userName": "James L.",
+          "rate": 5,
+          "text": "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
+          "verified": true
+        },
+        {
+          "id": 7,
+          "userName": "Sarah M.",
+          "rate": 5,
+          "text": "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+          "verified": true
+        },
+        {
+          "id": 8,
+          "userName": "Alex K.",
+          "rate": 5,
+          "text": "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
+          "verified": true
+        },
+        {
+          "id": 9,
+          "userName": "James L.",
+          "rate": 5,
+          "text": "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
+          "verified": true
+        },
+        {
+          "id": 10,
+          "userName": "Sarah M.",
+          "rate": 5,
+          "text": "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+          "verified": true
+        },
+        {
+          "id": 11,
+          "userName": "Alex K.",
+          "rate": 5,
+          "text": "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
+          "verified": true
+        },
+        {
+          "id": 12,
+          "userName": "James L.",
+          "rate": 5,
+          "text": "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
+          "verified": true
+        }
+      ]
     },
     {
       "id": 4,
@@ -564,6 +650,48 @@
     },
     {
       "id": 3,
+      "userName": "James L.",
+      "rate": 5,
+      "text": "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
+      "verified": true
+    },
+    {
+      "id": 4,
+      "userName": "Sarah M.",
+      "rate": 5,
+      "text": "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+      "verified": true
+    },
+    {
+      "id": 5,
+      "userName": "Alex K.",
+      "rate": 5,
+      "text": "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
+      "verified": true
+    },
+    {
+      "id": 6,
+      "userName": "James L.",
+      "rate": 5,
+      "text": "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
+      "verified": true
+    },
+    {
+      "id": 7,
+      "userName": "Sarah M.",
+      "rate": 5,
+      "text": "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+      "verified": true
+    },
+    {
+      "id": 8,
+      "userName": "Alex K.",
+      "rate": 5,
+      "text": "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
+      "verified": true
+    },
+    {
+      "id": 9,
       "userName": "James L.",
       "rate": 5,
       "text": "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",

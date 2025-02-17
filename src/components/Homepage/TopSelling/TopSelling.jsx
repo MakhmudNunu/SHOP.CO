@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './TopSelling.scss'
+import { Link } from 'react-router-dom'
 
 const TopSelling = () => {
 
@@ -21,7 +22,9 @@ const TopSelling = () => {
                     {products.filter(item => item.rate >= 4.5).slice(0, 4).map((item, index) => {
                         return (
                             <div className="top__selling__item" key={index}>
-                                <img className="top__selling__item__img" src={item.image[0]} alt="new arrivals" />
+                                <Link to={`/detail/${item.id}`}>
+                                    <img className="top__selling__item__img" src={item.image[0]} alt="new arrivals" />
+                                </Link>
                                 <div className="top__selling__item__info">
                                     <h3 className="top__selling__item__title">{item.title}</h3>
                                     <div className="top__selling__item__rate">
