@@ -3,11 +3,14 @@ import axios from 'axios';
 import deleteButton from '../../assets/images/Delete.png'
 import promoIcon from '../../assets/images/Promo.png'
 import "./Cart.scss"
+import { useSelector } from 'react-redux';
 
-let discount = 20;
+
 
 const Cart = () => {
-
+  let discount = 20;
+  const cart = useSelector((state)=>state.cart.cart)
+  console.log(cart)
   const [itemCount, setItemCount] = useState(1);
 
   const itemPlus = () => {
@@ -22,16 +25,9 @@ const Cart = () => {
   }
 
 
-  const [cart, setCart] = useState([]);
+  
 
-  useEffect(() => {
-    axios.get("http://localhost:5000/users")
-      .then((response) => {
-        setCart(response.data[0].cart)
-        console.log('Данные получены')
-      })
-      .catch((error) => console.error(error));
-  }, [])
+  
 
   return (
     <section className="cart">
@@ -52,7 +48,7 @@ const Cart = () => {
 
               <div key={item.id} className={`cart__content__main__items__item ${index === 0 ? "first" : index === cart.length - 1 ? "last" : "middle"}`}>
                       <div className="cart__content__main__items__item__info">
-                        <img src={item.image} alt="cart__image" />
+                        <img src={item.image[0]} alt="cart__image" />
                         <div className="cart__content__main__items__item__info__right">
                           <div className="cart__content__main__items__item__info__right__top">
                             <h4>{item.title}</h4>

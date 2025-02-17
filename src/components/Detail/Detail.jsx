@@ -2,8 +2,14 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import './Detail.scss'
+import { useDispatch } from 'react-redux'
+import { add } from '../../store/cartSlice/cartSlice'
 
 const Detail = () => {
+
+  const dispatch = useDispatch()
+  
+
 
   const [product,setProduct] = useState({})
   const [similarProduct, setSimilarProduct] = useState([])
@@ -13,6 +19,17 @@ const Detail = () => {
   const [selectedSize, setSelectedSize] = useState('')
   const [activeTab, setActiveTab] = useState('reviews')
   const [moreReviews, setMoreReviews] = useState(5)
+  const [cart,setCart] = useState([])
+
+  const addCart = ()=>{
+    if(selectedColor !== '' && selectedSize !==''){
+     dispatch(add( {...product,sizes:selectedSize,colors:selectedColor,count:itemCount,price:product.price * itemCount}))
+    }
+    else{
+      alert('выберите цвет и размер')
+    }
+    console.log(cart)
+  }
 
   const itemPlus = () => {
     setItemCount(itemCount + 1);
@@ -87,7 +104,7 @@ const Detail = () => {
               <div className="detail__content__main__item__info__right">
                   <h2>{product.title}</h2>
                   <h5>{product.rate}/<span>5</span></h5>
-                  <h3>${product.price}</h3>
+                  <h3>${itemCount * product.price}</h3>
                   <p className="detail__content__main__item__info__right__description">{product.description}</p>
                   <div className="detail__content__main__item__info__right__colors">
                     <h4>Select Colors</h4>
@@ -148,7 +165,8 @@ const Detail = () => {
                           </svg>
                         </button>
                       </div>
-                      <button className='detail__content__main__item__info__right__controls__add__to__cart'>Add to Cart</button>
+                      <button 
+                      onClick={()=>addCart()}  className='detail__content__main__item__info__right__controls__add__to__cart'>Add to Cart</button>
                   </div>
               </div>
             </div>
