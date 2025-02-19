@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import deleteButton from '../../assets/images/Delete.png'
 import promoIcon from '../../assets/images/Promo.png'
 import "./Cart.scss"
@@ -23,11 +22,6 @@ const Cart = () => {
       setItemCount(itemCount - 1);
     }
   }
-
-
-  
-
-  
 
   return (
     <section className="cart">

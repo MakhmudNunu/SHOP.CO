@@ -1,8 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+
+const API_URL = "http://localhost:5000/users"
 
 const initialState = {
-    cart:[]
+    cart:[],
+    status: 'idle'
 }
+
+const fetchCart = createAsyncThunk(
+    'cart/fetchCart',
+    async () => {
+        await axios.get(API_URL)
+    }
+)
 
 
 export const cartSlice = createSlice({

@@ -2,22 +2,20 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './TopSelling.scss'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProducts } from '../../../store/productsSlice/productsSlice'
 
 const TopSelling = () => {
 
-    const [products, setProducts] = useState([])
+    const dispatch = useDispatch()
+    const {products, status} = useSelector((state) => state.products)
 
     useEffect(() => {
-        axios.get("http://localhost:5000/productsDB")
-        .then(response => setProducts(response.data))
-        .catch(error => console.error("Ошибка загрузки", error));
-    }, [])
+        dispatch(fetchProducts)
+    }, [dispatch])
 
-  return (
-    <section className="top__selling">
-        <div className="top__selling__container container">
-            <div className="top__selling__content">
-                <h2 className="top__selling__title">Top Selling</h2>
+    const renderContent = () => {
+        return (
                 <div className="top__selling__items">
                     {products.filter(item => item.rate >= 4.5).slice(0, 4).map((item, index) => {
                         return (
@@ -37,6 +35,14 @@ const TopSelling = () => {
                         )
                     })}
                 </div>
+        )
+    }
+  return (
+    <section className="top__selling">
+        <div className="top__selling__container container">
+            <div className="top__selling__content">
+                <h2 className="top__selling__title">Top Selling</h2>
+                {renderContent()}
                 <button className="top__selling__btn">View All</button>
             </div>
         </div>
