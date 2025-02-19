@@ -24,6 +24,7 @@ const Detail = () => {
   const addCart = ()=>{
     if(selectedColor !== '' && selectedSize !==''){
      dispatch(add( {...product,sizes:selectedSize,colors:selectedColor,count:itemCount,price:product.price * itemCount}))
+       
     }
     else{
       alert('выберите цвет и размер')

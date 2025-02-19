@@ -701,74 +701,10 @@
   "users": [
     {
       "email": "qwertya@gmail.com",
-      "password": "$2a$10$FzCHIlCRuyq6zE5eJZgCHe4FLvigtR35hSnDOYxbEhsHII0MYyNwO",
+      "password": "$2a$10$bCNUS8phqo5C8evEVWuwFO5GxGjSDvf66hRN5/paSkQyklWb/jJda",
       "name": "qwerty",
       "id": 1,
-      "cart" : [
-        {
-          "id": 1,
-          "image": "/images/SkinnyJeans.png",
-          "title": "Skinny Fit Jeans",
-          "price": 240,
-          "rate": 3.5,
-          "description": "Skinny fit jeans for a stylish look",
-          "category": "Jeans",
-          "colors": [
-            "blue",
-            "black",
-            "grey"
-          ],
-          "sizes": [
-            "28",
-            "30",
-            "32",
-            "34"
-          ],
-          "stock": 30
-        },
-        {
-          "id": 2,
-          "image": "/images/ChekeredShirt.png",
-          "title": "Checked Shirt",
-          "price": 180,
-          "rate": 4.5,
-          "description": "A classic checked shirt for casual wear",
-          "category": "Shirts",
-          "colors": [
-            "red",
-            "blue",
-            "green"
-          ],
-          "sizes": [
-            "Small",
-            "Medium",
-            "Large",
-            "X-Large"
-          ],
-          "stock": 40
-        },
-        {
-          "id": 3,
-          "image": "/images/Gradient.png",
-          "title": "Gradient Graphic T-shirt",
-          "price": 145,
-          "rate": 4.5,
-          "description": "A classic checked shirt for casual wear",
-          "category": "Shirts",
-          "colors": [
-            "red",
-            "blue",
-            "green"
-          ],
-          "sizes": [
-            "Small",
-            "Medium",
-            "Large",
-            "X-Large"
-          ],
-          "stock": 40
-        }
-      ]
+      "cart":[]
     }
   ]
 }
