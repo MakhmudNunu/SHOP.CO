@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts, addProduct } from '../../../store/productsSlice/productsSlice';
+import { fetchProducts } from '../../../store/productsSlice/productsSlice';
 import './NewArrivals.scss'
 import { Link } from 'react-router-dom'
 

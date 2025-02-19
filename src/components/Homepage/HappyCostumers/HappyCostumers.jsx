@@ -32,7 +32,7 @@ const HappyCostumers = () => {
                     <Swiper
                         modules={[Navigation]}
                         spaceBetween={20}
-                        slidesPerView="3.5"
+                        slidesPerView="3"
                         centeredSlides={true}
                         navigation={{
                             nextEl: ".custom-next",
