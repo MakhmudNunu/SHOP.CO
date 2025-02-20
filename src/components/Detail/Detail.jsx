@@ -1,35 +1,45 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import './Detail.scss'
 import { useDispatch } from 'react-redux'
-import { add } from '../../store/cartSlice/cartSlice'
+import { addCart } from '../../store/cartSlice/cartSlice'
+import './Detail.scss'
 
 const Detail = () => {
 
   const dispatch = useDispatch()
+
+  const [product,setProduct] = useState({}) //Текущий продукт
+  const [similarProduct, setSimilarProduct] = useState([]) //Похожие
+  const [activePage, setActivePage] = useState('') //Активное фото
+  const [itemCount, setItemCount] = useState(1) 
+  const [selectedColor, setSelectedColor] = useState([]) //Выбранный цвет
+  const [selectedSize, setSelectedSize] = useState([]) //Выбранный размер
+  const [activeTab, setActiveTab] = useState('reviews') //Активный таб
+  const [moreReviews, setMoreReviews] = useState(5) //Больше отзывов
+
+  const addToCart = () => {
+    if (selectedColor !== '' && selectedSize !== '') {
+      const productToAdd = {
+        id: product.id,
+        image: product.image[0],
+        title: product.title,
+        price: product.price * itemCount,
+        rate: product.rate,
+        description: product.description,
+        category: product.category,
+        colors: selectedColor,
+        sizes: selectedSize,
+        stock: product.stock,
+        count: itemCount,
+      };
+      dispatch(addCart(productToAdd));
+    } else {
+      alert('Выберите цвет и размер');
+    }
+  };
   
-
-
-  const [product,setProduct] = useState({})
-  const [similarProduct, setSimilarProduct] = useState([])
-  const [activePage, setActivePage] = useState('')
-  const [itemCount, setItemCount] = useState(1)
-  const [selectedColor, setSelectedColor] = useState('')
-  const [selectedSize, setSelectedSize] = useState('')
-  const [activeTab, setActiveTab] = useState('reviews')
-  const [moreReviews, setMoreReviews] = useState(5)
-  const [cart,setCart] = useState([])
-
-  const addCart = ()=>{
-    if(selectedColor !== '' && selectedSize !==''){
-     dispatch(add( {...product,sizes:selectedSize,colors:selectedColor,count:itemCount,price:product.price * itemCount}))
-    }
-    else{
-      alert('выберите цвет и размер')
-    }
-    console.log(cart)
-  }
+  
 
   const itemPlus = () => {
     setItemCount(itemCount + 1);
@@ -53,7 +63,7 @@ const Detail = () => {
       setProduct(data)
       setActivePage(data.image[0])
     })
-  },[])
+  },[id])
   useEffect(()=>{
     axios(`http://localhost:5000/productsDB/`)
     .then(({data})=>{
@@ -87,7 +97,7 @@ const Detail = () => {
                             setActivePage(item)
                           }} 
                           src={item} 
-                          alt={`Product image ${item}`} 
+                          alt={`Product ${item}`} 
                         />
                       </div>
                     ))
@@ -166,7 +176,7 @@ const Detail = () => {
                         </button>
                       </div>
                       <button 
-                      onClick={()=>addCart()}  className='detail__content__main__item__info__right__controls__add__to__cart'>Add to Cart</button>
+                      onClick={()=>addToCart()}  className='detail__content__main__item__info__right__controls__add__to__cart'>Add to Cart</button>
                   </div>
               </div>
             </div>
