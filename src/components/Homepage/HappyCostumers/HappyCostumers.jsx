@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchFeedbacks, addFeedback } from '../../../store/feedbacksSlice/feedbacksSlice';
+import { fetchFeedbacks } from '../../../store/feedbacksSlice/feedbacksSlice';
 import verified from '../../../assets/images/verified.png'
 
 import './HappyCostumers.scss'
@@ -32,7 +32,7 @@ const HappyCostumers = () => {
                     <Swiper
                         modules={[Navigation]}
                         spaceBetween={20}
-                        slidesPerView="3.5"
+                        slidesPerView="3"
                         centeredSlides={true}
                         navigation={{
                             nextEl: ".custom-next",

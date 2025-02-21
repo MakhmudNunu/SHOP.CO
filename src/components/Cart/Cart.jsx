@@ -1,23 +1,80 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import deleteButton from '../../assets/images/Delete.png'
 import promoIcon from '../../assets/images/Promo.png'
+import { fetchCart, itemPlus, itemMinus } from '../../store/cartSlice/cartSlice';
 import "./Cart.scss"
 import { useDispatch, useSelector } from 'react-redux';
-import { plus,minus } from '../../store/cartSlice/cartSlice';
+
+
 
 
 
 const Cart = () => {
   let discount = 20;
-  const cart = useSelector((state)=>state.cart.cart)
-  const dispatch = useDispatch()
 
- const plusOne = (id)=>{
-  dispatch(plus(id))
- }
- const minusOne = (id)=>{
-  dispatch(minus(id))
- }
+
+  const dispatch = useDispatch()
+  const {cart, status} = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    dispatch(fetchCart())
+  }, [dispatch])
+
+  const itemCountPlus = (item) => {
+    dispatch(itemPlus(item)); 
+  };
+  
+  const itemCountMinus = (item) => {
+    dispatch(itemMinus(item));
+  };
+
+  const renderCart = () => {
+    if (status === 'loading') {
+      return <div>Loading...</div>;
+    }
+    if (status === 'failed') {
+      return <div>Failed to load cart</div>;
+    }
+    return (
+      cart.map((item, index) => {
+        return (
+          <div key={item.id} className={`cart__content__main__items__item ${index === 0 ? "first" : index === cart.length - 1 ? "last" : "middle"}`}>
+            <div className="cart__content__main__items__item__info">
+              <img src={item.image} alt="cart__image" />
+              <div className="cart__content__main__items__item__info__right">
+                <div className="cart__content__main__items__item__info__right__top">
+                  <h4>{item.title}</h4>
+                  <p>Size: <span>{item.sizes}</span></p>
+                  <p>Color: <span>{item.colors}</span></p>
+                </div>
+                <h3>{`$${item.price}`}</h3>
+              </div>
+            </div>
+            <div className="cart__content__main__items__item__control">
+              <button className="cart__content__main__items__item__control__delete">
+                <img src={deleteButton} alt="" />
+              </button>
+              <div className="cart__content__main__items__item__control__count">
+                <button onClick={() => itemCountMinus(item)} className="cart__content__main__items__item__control__minus">
+                  <svg width="20" height="4" viewBox="0 0 20 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.375 2C19.375 2.29837 19.2565 2.58452 19.0455 2.79549C18.8345 3.00647 18.5484 3.125 18.25 3.125H1.75C1.45163 3.125 1.16548 3.00647 0.954505 2.79549C0.743526 2.58452 0.625 2.29837 0.625 2C0.625 1.70163 0.743526 1.41548 0.954505 1.2045C1.16548 0.993526 1.45163 0.875 1.75 0.875H18.25C18.5484 0.875 18.8345 0.993526 19.0455 1.2045C19.2565 1.41548 19.375 1.70163 19.375 2Z" fill="black" />
+                  </svg>
+                </button>
+                <p>{item.count}</p>
+                <button onClick={() => itemCountPlus(item)} className="cart__content__main__items__item__control__plus">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.375 10C19.375 10.2984 19.2565 10.5845 19.0455 10.7955C18.8345 11.0065 18.5484 11.125 18.25 11.125H11.125V18.25C11.125 18.5484 11.0065 18.8345 10.7955 19.0455C10.5845 19.2565 10.2984 19.375 10 19.375C9.70163 19.375 9.41548 19.2565 9.2045 19.0455C8.99353 18.8345 8.875 18.5484 8.875 18.25V11.125H1.75C1.45163 11.125 1.16548 11.0065 0.954505 10.7955C0.743526 10.5845 0.625 10.2984 0.625 10C0.625 9.70163 0.743526 9.41548 0.954505 9.2045C1.16548 8.99353 1.45163 8.875 1.75 8.875H8.875V1.75C8.875 1.45163 8.99353 1.16548 9.2045 0.954505C9.41548 0.743526 9.70163 0.625 10 0.625C10.2984 0.625 10.5845 0.743526 10.7955 0.954505C11.0065 1.16548 11.125 1.45163 11.125 1.75V8.875H18.25C18.5484 8.875 18.8345 8.99353 19.0455 9.2045C19.2565 9.41548 19.375 9.70163 19.375 10Z" fill="black" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        )
+      })
+    )
+  }
+  
+
 
   return (
     <section className="cart">
@@ -31,6 +88,7 @@ const Cart = () => {
           </h2>
           <div className="cart__content__main">
             <div className="cart__content__main__items">
+
               {
                   
                 cart.map((item, index) => {
@@ -53,23 +111,16 @@ const Cart = () => {
                           <img src={deleteButton} alt="" />
                         </button>
                         <div className="cart__content__main__items__item__control__count">
-                          <button onClick={()=>{minusOne(item.id)}} className="cart__content__main__items__item__control__minus">
-                            <svg width="20" height="4" viewBox="0 0 20 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M19.375 2C19.375 2.29837 19.2565 2.58452 19.0455 2.79549C18.8345 3.00647 18.5484 3.125 18.25 3.125H1.75C1.45163 3.125 1.16548 3.00647 0.954505 2.79549C0.743526 2.58452 0.625 2.29837 0.625 2C0.625 1.70163 0.743526 1.41548 0.954505 1.2045C1.16548 0.993526 1.45163 0.875 1.75 0.875H18.25C18.5484 0.875 18.8345 0.993526 19.0455 1.2045C19.2565 1.41548 19.375 1.70163 19.375 2Z" fill="black" />
-                            </svg>
-                          </button>
+                         
                           <p>{item.count}</p>
-                          <button onClick={()=>{plusOne(item.id)}} className="cart__content__main__items__item__control__plus">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M19.375 10C19.375 10.2984 19.2565 10.5845 19.0455 10.7955C18.8345 11.0065 18.5484 11.125 18.25 11.125H11.125V18.25C11.125 18.5484 11.0065 18.8345 10.7955 19.0455C10.5845 19.2565 10.2984 19.375 10 19.375C9.70163 19.375 9.41548 19.2565 9.2045 19.0455C8.99353 18.8345 8.875 18.5484 8.875 18.25V11.125H1.75C1.45163 11.125 1.16548 11.0065 0.954505 10.7955C0.743526 10.5845 0.625 10.2984 0.625 10C0.625 9.70163 0.743526 9.41548 0.954505 9.2045C1.16548 8.99353 1.45163 8.875 1.75 8.875H8.875V1.75C8.875 1.45163 8.99353 1.16548 9.2045 0.954505C9.41548 0.743526 9.70163 0.625 10 0.625C10.2984 0.625 10.5845 0.743526 10.7955 0.954505C11.0065 1.16548 11.125 1.45163 11.125 1.75V8.875H18.25C18.5484 8.875 18.8345 8.99353 19.0455 9.2045C19.2565 9.41548 19.375 9.70163 19.375 10Z" fill="black" />
-                            </svg>
-                          </button>
+                         
                         </div>
                       </div>
                     </div>
                   )
                 })
               }
+             {renderCart()}
             </div>
             <div className="cart__content__main__order__summary">
               <h3 className="cart__content__main__order__summary__title">
