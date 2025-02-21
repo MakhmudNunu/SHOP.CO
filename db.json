@@ -701,7 +701,7 @@
   "users": [
     {
       "email": "qwertya@gmail.com",
-      "password": "$2a$10$FzCHIlCRuyq6zE5eJZgCHe4FLvigtR35hSnDOYxbEhsHII0MYyNwO",
+      "password": "$2a$10$bCNUS8phqo5C8evEVWuwFO5GxGjSDvf66hRN5/paSkQyklWb/jJda",
       "name": "qwerty",
       "id": 1,
       "cart": [
@@ -756,6 +756,19 @@
           "sizes": "Large",
           "stock": 50,
           "count": 3
+        },
+        {
+          "id": 2,
+          "image": "/images/SkinnyJeans.png",
+          "title": "Skinny Fit Jeans",
+          "price": 240,
+          "rate": 3.5,
+          "description": "Skinny fit jeans for a stylish look",
+          "category": "Jeans",
+          "colors": "blue",
+          "sizes": "30",
+          "stock": 30,
+          "count": 2
         }
       ]
     }

@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import deleteButton from '../../assets/images/Delete.png'
 import promoIcon from '../../assets/images/Promo.png'
-import { useDispatch, useSelector } from 'react-redux';
 import { fetchCart, itemPlus, itemMinus } from '../../store/cartSlice/cartSlice';
 import "./Cart.scss"
+import { useDispatch, useSelector } from 'react-redux';
+
+
+
+
 
 const Cart = () => {
   let discount = 20;
@@ -70,19 +74,7 @@ const Cart = () => {
     )
   }
   
-  // const itemPlus = (id) => {
-  //   const item = cart.find(item => item.id === id);
-  //   if (item) {
-  //     item.quantity++;
-  //   }
-  // }
-  
-  // const itemMinus = (id) => {
-  //   const item = cart.find(item => item.id === id);
-  //   if (item && item.quantity > 0) {
-  //     item.quantity--;
-  //   }
-  // }
+
 
   return (
     <section className="cart">
@@ -96,6 +88,38 @@ const Cart = () => {
           </h2>
           <div className="cart__content__main">
             <div className="cart__content__main__items">
+
+              {
+                  
+                cart.map((item, index) => {
+                  return (
+
+              <div key={item.id} className={`cart__content__main__items__item ${index === 0 ? "first" : index === cart.length - 1 ? "last" : "middle"}`}>
+                      <div className="cart__content__main__items__item__info">
+                        <img src={item.image[0]} alt="cart__image" />
+                        <div className="cart__content__main__items__item__info__right">
+                          <div className="cart__content__main__items__item__info__right__top">
+                            <h4>{item.title}</h4>
+                            <p>Size: <span></span></p>
+                            <p>Color: <span></span></p>
+                          </div>
+                          <h3>{`$${item.price}`}</h3>
+                        </div>
+                      </div>
+                      <div className="cart__content__main__items__item__control">
+                        <button className="cart__content__main__items__item__control__delete">
+                          <img src={deleteButton} alt="" />
+                        </button>
+                        <div className="cart__content__main__items__item__control__count">
+                         
+                          <p>{item.count}</p>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })
+              }
              {renderCart()}
             </div>
             <div className="cart__content__main__order__summary">

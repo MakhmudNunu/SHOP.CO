@@ -2,7 +2,23 @@
 @import "../../assets/fonts/fonts.css";
 
 .header {
+    position: relative;
     width: 100%;
+    &__dropdownfalse{
+        transform: translateY(-100%);
+        
+transition: 2s;
+    }
+    &__dropdown{
+        position: absolute;
+        width: 577px;
+        background: grey;
+        height: 450px;
+        z-index: 2;
+        left: 50%;
+        transform: translateY(0);
+        transition: 2s;
+    }
     &__top {
         width: 100%;
         color: white;
