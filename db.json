@@ -709,53 +709,14 @@
           "id": 1,
           "image": "/images/BlackTShirt.png",
           "title": "Classic Black TShirt",
-          "price": 120,
-          "rate": 4.5,
-          "description": "A classic T-shirt with tape details",
-          "category": "T-Shirts",
-          "colors": "white",
-          "sizes": "Medium",
-          "stock": 50,
-          "count": 1
-        },
-        {
-          "id": 1,
-          "image": "/images/BlackTShirt.png",
-          "title": "Classic Black TShirt",
-          "price": 120,
+          "price": 240,
           "rate": 4.5,
           "description": "A classic T-shirt with tape details",
           "category": "T-Shirts",
           "colors": "black",
-          "sizes": "Medium",
-          "stock": 50,
-          "count": 1
-        },
-        {
-          "id": 1,
-          "image": "/images/BlackTShirt.png",
-          "title": "Classic Black TShirt",
-          "price": 120,
-          "rate": 4.5,
-          "description": "A classic T-shirt with tape details",
-          "category": "T-Shirts",
-          "colors": "grey",
           "sizes": "Small",
           "stock": 50,
-          "count": 4
-        },
-        {
-          "id": 1,
-          "image": "/images/BlackTShirt.png",
-          "title": "Classic Black TShirt",
-          "price": 120,
-          "rate": 4.5,
-          "description": "A classic T-shirt with tape details",
-          "category": "T-Shirts",
-          "colors": "white",
-          "sizes": "Large",
-          "stock": 50,
-          "count": 3
+          "count": 2
         }
       ]
     }
