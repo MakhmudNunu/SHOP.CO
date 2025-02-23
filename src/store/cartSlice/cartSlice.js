@@ -5,7 +5,8 @@ const API_URL = "http://localhost:5000/users/1"
 
 const initialState = {
     cart:[],
-    status: 'idle'
+    status: 'idle',
+    
 }
 
 export const fetchCart = createAsyncThunk(
@@ -76,6 +77,7 @@ export const itemMinus = createAsyncThunk(
 export const cartSlice = createSlice({
     name:"cartSlice",
     initialState,
+   
     reducers:{},
     extraReducers: (builder) => {
         builder

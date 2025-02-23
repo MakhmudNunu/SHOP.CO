@@ -701,7 +701,7 @@
   "users": [
     {
       "email": "qwertya@gmail.com",
-      "password": "$2a$10$FzCHIlCRuyq6zE5eJZgCHe4FLvigtR35hSnDOYxbEhsHII0MYyNwO",
+      "password": "$2a$10$bCNUS8phqo5C8evEVWuwFO5GxGjSDvf66hRN5/paSkQyklWb/jJda",
       "name": "qwerty",
       "id": 1,
       "cart": [
@@ -716,7 +716,7 @@
           "colors": "black",
           "sizes": "Small",
           "stock": 50,
-          "count": 2
+          "count": 4
         }
       ]
     }
