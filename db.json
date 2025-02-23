@@ -701,24 +701,10 @@
   "users": [
     {
       "email": "qwertya@gmail.com",
-      "password": "$2a$10$FzCHIlCRuyq6zE5eJZgCHe4FLvigtR35hSnDOYxbEhsHII0MYyNwO",
+      "password": "$2a$10$bCNUS8phqo5C8evEVWuwFO5GxGjSDvf66hRN5/paSkQyklWb/jJda",
       "name": "qwerty",
       "id": 1,
-      "cart": [
-        {
-          "id": 1,
-          "image": "/images/BlackTShirt.png",
-          "title": "Classic Black TShirt",
-          "price": 240,
-          "rate": 4.5,
-          "description": "A classic T-shirt with tape details",
-          "category": "T-Shirts",
-          "colors": "black",
-          "sizes": "Small",
-          "stock": 50,
-          "count": 2
-        }
-      ]
+      "cart": []
     }
   ]
 }

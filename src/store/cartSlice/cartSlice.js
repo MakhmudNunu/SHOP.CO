@@ -5,7 +5,8 @@ const API_URL = "http://localhost:5000/users/1"
 
 const initialState = {
     cart:[],
-    status: 'idle'
+    status: 'idle',
+    
 }
 
 export const fetchCart = createAsyncThunk(
@@ -24,7 +25,7 @@ export const addCart = createAsyncThunk(
       console.log(findItem)
       const updatedCart = findItem ? 
         user.cart.map((item) => item.id === payload.id ? {...item, count: item.count + payload.count} : item) 
-        : [...user.cart, payload]
+        : [...user.cart, {...payload, id: `${payload.id}-${user.cart.length + 1}`}];
 
       const response = await axios.patch(API_URL, {
         cart: updatedCart,
@@ -33,11 +34,15 @@ export const addCart = createAsyncThunk(
     }
 );
 
-const removeCart = createAsyncThunk(
+export const removeCart = createAsyncThunk(
     'cart/removeCart',
-    async (payload) => {
-        await axios.delete(`${API_URL}/${payload}`)
-        return payload
+    async (itemId) => {
+        const { data: user } = await axios.get(API_URL);
+        const updatedCart = user.cart.filter((item) => item.id !== itemId);
+        const response = await axios.patch(API_URL, {
+            cart: updatedCart,
+        });
+        return itemId
     }
 )
 
@@ -76,6 +81,7 @@ export const itemMinus = createAsyncThunk(
 export const cartSlice = createSlice({
     name:"cartSlice",
     initialState,
+   
     reducers:{},
     extraReducers: (builder) => {
         builder
