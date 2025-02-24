@@ -43,6 +43,7 @@ const HappyCostumers = () => {
                             1024: { slidesPerView: 2 },
                             768: { slidesPerView: 1 },
                         }}
+                        loop={true}
                     >
                         {feedbacks.map((item) => (
                             <SwiperSlide key={item.id} style={{ width: "auto" }}>
