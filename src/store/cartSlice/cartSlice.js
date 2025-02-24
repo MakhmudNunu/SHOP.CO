@@ -22,10 +22,9 @@ export const addCart = createAsyncThunk(
     async (payload) => {
       const { data: user } = await axios.get(API_URL);
       const findItem = user.cart.find((item) => item.id === payload.id && item.sizes === payload.sizes && item.colors === payload.colors);
-      console.log(findItem)
       const updatedCart = findItem ? 
         user.cart.map((item) => item.id === payload.id ? {...item, count: item.count + payload.count} : item) 
-        : [...user.cart, {...payload, id: `${payload.id}-${user.cart.length + 1}`}];
+        : [...user.cart, payload];
 
       const response = await axios.patch(API_URL, {
         cart: updatedCart,

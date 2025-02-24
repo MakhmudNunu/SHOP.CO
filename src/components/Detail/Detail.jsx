@@ -18,26 +18,34 @@ const Detail = () => {
   const [activeTab, setActiveTab] = useState('reviews') //Активный таб
   const [moreReviews, setMoreReviews] = useState(5) //Больше отзывов
 
-  const addToCart = () => {
-    if (selectedColor !== '' && selectedSize !== '') {
-      const productToAdd = {
-        id: product.id,
-        image: product.image[0],
-        title: product.title,
-        price: product.price * itemCount,
-        rate: product.rate,
-        description: product.description,
-        category: product.category,
-        colors: selectedColor,
-        sizes: selectedSize,
-        stock: product.stock,
-        count: itemCount,
-      };
-      dispatch(addCart(productToAdd));
-    } else {
-      alert('Выберите цвет и размер');
-    }
-  };
+
+const addToCart = () => {
+  if (selectedColor !== '' && selectedSize !== '') {
+    const productToAdd = {
+      id: product.id,
+      image: product.image[0],
+      title: product.title,
+      price: product.price * itemCount,
+      rate: product.rate,
+      description: product.description,
+      category: product.category,
+      colors: selectedColor,
+      sizes: selectedSize,
+      stock: product.stock,
+      count: itemCount,
+    };
+    dispatch(addCart(productToAdd)).then((res) => {
+      if (res.meta.requestStatus === 'fulfilled') {
+        alert('Product added to cart successfully');
+      } else {
+        alert('Failed to add product to cart');
+      }
+    });
+  } else {
+    alert('Выберите цвет и размер');
+  }
+};
+
   
   const location = useLocation()
   let id = location.pathname.split('/')[location.pathname.split('/').length -1]
