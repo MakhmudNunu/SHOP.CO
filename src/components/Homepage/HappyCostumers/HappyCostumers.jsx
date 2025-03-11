@@ -33,7 +33,7 @@ const HappyCostumers = () => {
                         modules={[Navigation]}
                         spaceBetween={20}
                         slidesPerView="3"
-                        centeredSlides={true}
+                        centeredSlides={false}
                         navigation={{
                             nextEl: ".custom-next",
                             prevEl: ".custom-prev",
@@ -43,7 +43,7 @@ const HappyCostumers = () => {
                             1024: { slidesPerView: 2 },
                             768: { slidesPerView: 1 },
                         }}
-                        loop={true}
+                        // loop={true}
                     >
                         {feedbacks.map((item) => (
                             <SwiperSlide key={item.id} style={{ width: "auto" }}>
