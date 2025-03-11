@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addCart } from '../../store/cartSlice/cartSlice'
 import './Detail.scss'
+import WriteReview from './WriteReview'
 
 const Detail = () => {
 
@@ -320,6 +321,7 @@ const addToCart = () => {
           </div>
         </div>
       </div>
+      <WriteReview />
     </section>
   )
 }
