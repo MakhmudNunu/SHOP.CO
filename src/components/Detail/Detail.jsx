@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addCart } from '../../store/cartSlice/cartSlice'
 import './Detail.scss'
@@ -8,11 +8,13 @@ import WriteReview from './WriteReview'
 
 const Detail = () => {
 
+  const API_URL = process.env.REACT_APP_API_URL + 'api/products/'
+
   const dispatch = useDispatch()
 
   const [product,setProduct] = useState({}) //Текущий продукт
   const [similarProduct, setSimilarProduct] = useState([]) //Похожие
-  const [activePage, setActivePage] = useState('') //Активное фото
+  const [activePage, setActivePage] = useState(null) //Активное фото
   const [itemCount, setItemCount] = useState(1) 
   const [selectedColor, setSelectedColor] = useState() //Выбранный цвет
   const [selectedSize, setSelectedSize] = useState() //Выбранный размер
@@ -51,20 +53,26 @@ const addToCart = () => {
   const location = useLocation()
   let id = location.pathname.split('/')[location.pathname.split('/').length -1]
   // let hereLoc = location.pathname.split('/')
+  // console.log(hereLoc)
+
+  useEffect(() => {
+    // Скроллим в начало страницы при изменении маршрута
+    window.scrollTo(0, 0);
+  }, [location]);
  
   useEffect(()=>{
-    axios(`http://localhost:5000/productsDB/${id}`)
+    axios(`${API_URL}${id}`)
     .then(({data})=>{
       setProduct(data)
       setActivePage(data.image[0])
     })
-  },[id])
+  },[id, API_URL])
   useEffect(()=>{
-    axios(`http://localhost:5000/productsDB/`)
+    axios(API_URL)
     .then(({data})=>{
       setSimilarProduct(data)
     })
-  },[])
+  },[API_URL])
 
   return (
     <section className='detail'>
@@ -85,8 +93,8 @@ const addToCart = () => {
               <div className="detail__content__main__item__info__left">
                 <div className="detail__content__main__item__info__left__tabs">
                   {product.image && Array.isArray(product.image) ? (
-                    product.image.map((item) => (
-                      <div key={item} className={`detail__content__main__item__info__left__tabs__tab ${item === activePage ? 'active' : ''}`} >
+                    product.image.map((item, index) => (
+                      <div key={index} className={`detail__content__main__item__info__left__tabs__tab ${item === activePage ? 'active' : ''}`} >
                         <img 
                           onClick={() => {
                             setActivePage(item)
@@ -102,7 +110,7 @@ const addToCart = () => {
                     </div>
                   )}
                   <div className="detail__content__main__item__info__left__tabs__active__tab">
-                    <img src={activePage} alt="" />
+                    <img src={activePage} alt="active-page" />
                   </div>
                 </div>
               </div>
@@ -117,7 +125,7 @@ const addToCart = () => {
                     {product.image && Array.isArray(product.image) ? (
                       product.colors.map((item, index) => {
                         return (
-                          <div 
+                          <div
                             key={index} 
                             className={`detail__content__main__item__info__right__colors__list__color ${selectedColor === item ? 'active' : ''} ${selectedColor === 'white' ? 'white' : ''}`} 
                             style={{
@@ -308,9 +316,11 @@ const addToCart = () => {
             <h2>You might also like</h2>
             <div className="detail__content__also__like__items">
               {
-                similarProduct.filter((item) => item.category === product.category || product.category === 'Shirts').slice(0, 4).map((item, index) => (
-                  <div key={index} className="detail__content__also__like__items__item">
-                    <img src={item.image[0]} alt={item.title} />
+                similarProduct.filter((item) => item.category === product.category && item.id !== product.id).slice(0, 4).map((item, index) => (
+                  <div key={`${item.id}-${index}`} className="detail__content__also__like__items__item">
+                    <Link to={`/detail/${item.id}`}>
+                      <img src={item.image[0]} alt={item.title} />
+                    </Link>
                     <h4>{item.title}</h4>
                     <h5>{item.rate}</h5>
                     <p>${item.price}</p>
